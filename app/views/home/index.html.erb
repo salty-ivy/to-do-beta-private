@@ -1,0 +1,16 @@
+
+<% if user_signed_in? %> 
+<div> Welcome <%= current_user.email %> </div> 
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %> 
+<% end %>
+<h1>welcome</h1>
+<h3><%= link_to "New project", new_project_path, data: {turbo_frame: dom_id(Project.new)} %> </h3>
+<!-- the data-turbo-fame tag on link connects it to the fame below  -->
+<%= turbo_frame_tag Project.new %>
+<br>
+<%= turbo_frame_tag "projects" do %>
+  <%= render "projects/index" %>
+<% end %>
+

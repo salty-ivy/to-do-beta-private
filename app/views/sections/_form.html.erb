@@ -1,0 +1,5 @@
+<%= form_with model:[ @project, @project.sections.build ] do |form| %>
+	<%= form.text_field :name %><br>
+	<%= link_to "Cancel", project_path(@project) %>
+	<%= form.submit %>
+<% end %>

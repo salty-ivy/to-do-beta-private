@@ -1,0 +1,10 @@
+<% if @projects %>
+  <% @projects.each do |project| %>
+    <%= turbo_frame_tag dom_id(project) do %>
+      <div>
+        <%= link_to project.title, project_path(project) %> | <%= link_to "Edit", edit_project_path(project) %> | <%= button_to "comepleted", project_path(project), method: :delete %>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+<% end %>

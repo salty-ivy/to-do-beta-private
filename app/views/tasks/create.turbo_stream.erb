@@ -1,0 +1,12 @@
+<%= turbo_stream.append dom_id(@section, "tasks") do %>
+  <%= turbo_frame_tag dom_id(@task) do %>
+    <div>
+        <%= link_to @task.title, task_path(@task), data: {turbo_frame: dom_id(@section, "tasks")} %> <%= button_to "comepleted", task_path(@task), method: :delete, data: {turbo_method: :delete} %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update dom_id(@section.tasks.new, dom_id(@section)) do %>
+   <%= link_to "+ Add task", new_section_task_path(@section) %>
+<% end %>
+

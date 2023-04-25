@@ -1,0 +1,7 @@
+<%= form_with model: @task do |form|  %>
+	<%= form.text_field :title %><br>
+	<%= form.text_area :description %><br>
+	<%= link_to "Cancel", task_path(@task) %>
+	<%= form.submit %>
+<% end %>
+

@@ -1,0 +1,12 @@
+<%= turbo_frame_tag dom_id(@section, "tasks") do %>
+	<%= turbo_frame_tag dom_id(@task) do  %>
+		<strong><h4><%= link_to @task.title, edit_task_path(@task) %></h4></strong> 
+		<% if @task.description %>
+			<strong><h4><%= @task.description %></h4></strong>
+		<% end %>
+		<strong><%= button_to "comepleted", task_path(@task), method: :delete, data: {turbo_method: :delete} %></strong>
+		<br>
+	<% end %>
+	<%= link_to "Back", project_path(@section.project) %>
+<% end %>
+

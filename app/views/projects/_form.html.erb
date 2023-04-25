@@ -1,0 +1,6 @@
+<%= form_with model: @project do |form| %>
+	<%= form.text_field :title %><br>
+	<%= form.text_area :description %><br>
+	<%= link_to "Cancel", root_path %>
+	<%= form.submit %>
+<% end %>

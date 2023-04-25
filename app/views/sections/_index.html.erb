@@ -1,0 +1,5 @@
+<% if @project.sections %>
+  <% @project.sections.each do |section| %>
+    <%= render "sections/show", project: @project, section: section %>
+  <% end %>
+<% end %>

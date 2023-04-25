@@ -1,0 +1,19 @@
+<%= turbo_frame_tag dom_id(@project) do %>
+	<br>
+	<div>
+		<%= @project.title %><br>
+		<%= @project.description %><br>
+		<%= turbo_frame_tag dom_id(@project, "sections") do %>
+			<%= render partial: "sections/index", locals: {project: @project}%>
+		<% end %>
+
+		<%= turbo_frame_tag dom_id(Section.new, dom_id(@project)) %>
+
+		<br>
+		<strong><%= link_to "Add section", new_project_section_path(@project), data: {turbo_frame: dom_id(Section.new, dom_id(@project))} %></strong>
+		<br>
+
+		<%= link_to "Back", root_path %>
+	</div>
+	<br>
+<% end %>
